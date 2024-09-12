@@ -9,7 +9,7 @@ st.markdown("<center><h1> Online Courses Dataset </h1></center>", unsafe_allow_h
 st.write('Online Courses Dataset Before Cleaning And Preprocessing:')
 
 # Reading and displaying the dataset before cleaning and preprocessing
-df_before = pd.read_csv("https://github.com/asizux2/EpsilionAI_Eslam_Khaled/blob/main/Sourse/online_course_engagement_data.csv")
+df_before = pd.read_csv("Sourse/online_course_engagement_data.csv")
 st.write(df_before)
 
 # Displaying information about the dataset after cleaning and preprocessing
