@@ -4,7 +4,7 @@
 # import numpy as np
 
 # # Load the pre-trained model, scaler, and feature columns
-# model = joblib.load(r"C:\Users\Lenovo\Desktop\Eslam_Final_Project\Sourse\best_random_forest_model.joblib")
+# model = joblib.load("https://github.com/asizux2/EpsilionAI_Eslam_Khaled/blob/main/Sourse/best_random_forest_model.joblib")
 # preprocessor = joblib.load(r"C:\Users\Lenovo\Desktop\Eslam_Final_Project\Sourse\preprocessor.pkl") 
 
 # # Title of the app
