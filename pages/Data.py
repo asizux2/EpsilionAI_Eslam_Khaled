@@ -16,5 +16,5 @@ st.write(df_before)
 st.write('Online Courses Dataset After Cleaning And Preprocessing:')
 
 # Reading and displaying the cleaned dataset
-df_after = pd.read_csv("https://github.com/asizux2/EpsilionAI_Eslam_Khaled/blob/main/Sourse/cleaned_data.csv")
+df_after = pd.read_csv("Sourse/cleaned_data.csv")
 st.write(df_after)
