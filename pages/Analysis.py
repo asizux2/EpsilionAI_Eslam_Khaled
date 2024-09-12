@@ -2,7 +2,7 @@ import streamlit as st
 from MEDA import load_data, clean_data,create_pie_chart,plot_histograms,plot_histograms_with_customizations,plot_correlation_heatmap
 
 
-FILE_PATH = r"C:\Users\Lenovo\Desktop\Eslam_Final_Project\Sourse\online_course_engagement_data.csv"
+FILE_PATH = "https://github.com/asizux2/EpsilionAI_Eslam_Khaled/blob/main/Sourse/online_course_engagement_data.csv"
 
 # Load and clean the data
 df = load_data(FILE_PATH)  
