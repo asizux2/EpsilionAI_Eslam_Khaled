@@ -2,13 +2,18 @@ import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
-
-# Load the pre-trained model and preprocessor
-model = joblib.load("Sourse/best_random_forest_model.joblib")
-preprocessor = joblib.load("Sourse/preprocessor.pkl")  # Use .pkl if that's the correct extension
+import os
 
 # Title of the app
 st.title("Course Metrics Prediction")
+
+# Try to load the pre-trained model and preprocessor
+try:
+    model = joblib.load("Sourse/best_random_forest_model.joblib")
+    preprocessor = joblib.load("Sourse/preprocessor.pkl")  # Ensure .pkl is the correct extension
+except FileNotFoundError:
+    st.error("Model or preprocessor file not found. Please check the file path.")
+    st.stop()
 
 # Input fields for user data
 course_category = st.selectbox("Course Category", ['Health', 'Arts', 'Science', 'Programming', 'Business'])
@@ -34,23 +39,33 @@ input_data = pd.DataFrame({
 })
 
 # Preprocess the input data
-input_data_processed = preprocessor.transform(input_data)
+try:
+    input_data_processed = preprocessor.transform(input_data)
+except Exception as e:
+    st.error(f"Error during data preprocessing: {e}")
+    st.stop()
 
 # Prediction button
 if st.button('Predict'):
-    # Make prediction
-    prediction = model.predict(input_data_processed)
-    prediction_proba = model.predict_proba(input_data_processed)
-    # Display result
-    st.write("Prediction:", "Completed" if prediction[0] == 1 else "Not Completed")
+    try:
+        # Make prediction
+        prediction = model.predict(input_data_processed)
+        prediction_proba = model.predict_proba(input_data_processed)
 
-    if prediction[0] == 1:
-        st.success('Student Will Complet Course.')
-    elif prediction[0] == 0:
-        st.error('Student Will Not Complet Course.')
+        # Display result
+        st.write("Prediction:", "Completed" if prediction[0] == 1 else "Not Completed")
 
-    # Display prediction probabilities with a styled subheader
-    st.subheader('Prediction Probability')
-    st.write(f"**Probability of Not Completing:** {prediction_proba[0][0]:.2%}")
-    st.write(f"**Probability of Completing:** {prediction_proba[0][1]:.2%}")
+        if prediction[0] == 1:
+            st.success('Student Will Complete the Course.')
+        elif prediction[0] == 0:
+            st.error('Student Will Not Complete the Course.')
+
+        # Display prediction probabilities
+        st.subheader('Prediction Probability')
+        st.write(f"**Probability of Not Completing:** {prediction_proba[0][0]:.2%}")
+        st.write(f"**Probability of Completing:** {prediction_proba[0][1]:.2%}")
+
+    except Exception as e:
+        st.error(f"Error during prediction: {e}")
+
 
