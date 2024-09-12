@@ -1,33 +1,11 @@
-# import streamlit as st
-# import pandas as pd
-# import joblib
-# import numpy as np
-
-# # Load the pre-trained model, scaler, and feature columns
-# model = joblib.load("Sourse/best_random_forest_model.joblib")
-# preprocessor = joblib.load("Sourse/preprocessor.pkl") 
-
-# # Title of the app
-# st.title("Course Metrics Prediction")
-
-# # Input fields for user data
-# course_category = st.selectbox("Course Category", ['Health', 'Arts', 'Science', 'Programming', 'Business'])
-# time_spent_on_course = st.number_input("Time Spent on Course (in hours)", min_value=0.0, format="%.2f")
-# number_of_videos_watched = st.number_input("Number of Videos Watched", min_value=0)
-# number_of_quizzes_taken = st.selectbox("Number of Quizzes Taken", list(range(11)))
-# quiz_scores = st.number_input("Quiz Scores", min_value=0.0, format="%.2f")
-# completion_rate = st.number_input("Completion Rate", min_value=0.0, format="%.2f")
-# device_type = st.radio("Device Type", ["Desktop", "Mobile"])
-
-
 import streamlit as st
 import pandas as pd
 import joblib
 import numpy as np
 
 # Load the pre-trained model and preprocessor
-model = joblib.load(r"C:\Users\Lenovo\Desktop\Eslam_Final_Project\Sourse\best_random_forest_model.joblib")
-preprocessor = joblib.load(r"C:\Users\Lenovo\Desktop\Eslam_Final_Project\Sourse\preprocessor.pkl")  # Use .pkl if that's the correct extension
+model = joblib.load("Sourse/best_random_forest_model.joblib")
+preprocessor = joblib.load("Sourse/preprocessor.pkl")  # Use .pkl if that's the correct extension
 
 # Title of the app
 st.title("Course Metrics Prediction")
