@@ -5,7 +5,7 @@
 
 # # Load the pre-trained model, scaler, and feature columns
 # model = joblib.load("https://github.com/asizux2/EpsilionAI_Eslam_Khaled/blob/main/Sourse/best_random_forest_model.joblib")
-# preprocessor = joblib.load(r"C:\Users\Lenovo\Desktop\Eslam_Final_Project\Sourse\preprocessor.pkl") 
+# preprocessor = joblib.load("https://github.com/asizux2/EpsilionAI_Eslam_Khaled/blob/main/Sourse/preprocessor.pkl") 
 
 # # Title of the app
 # st.title("Course Metrics Prediction")
